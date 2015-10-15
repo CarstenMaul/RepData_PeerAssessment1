@@ -27,7 +27,7 @@ activitydata$date <- ymd(activitydata$date)
 
 * Make a histogram of the total number of steps taken each day
 
-```{R echo=TRUE}
+```{R echo=TRUE,message=FALSE}
 library(ggplot2)
 steps_date <- aggregate(steps~date,data=activitydata,sum,na.rm=TRUE)
 
@@ -94,7 +94,7 @@ for(i in 1:nrow(activityNAFilled)){
 
 * Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day.
 
-```{r echo=TRUE}
+```{r echo=TRUE,message=FALSE}
 library(ggplot2)
 
 NAFilled_steps_date<-aggregate(steps~date,data=activityNAFilled,sum) # create aggregated data
