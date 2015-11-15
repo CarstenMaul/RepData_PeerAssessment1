@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1, Carsten Maul
 
 
 ## Loading and preprocessing the data
@@ -35,7 +30,7 @@ steps_date <- aggregate(steps~date,data=activitydata,sum,na.rm=TRUE)
 ggplot(steps_date,aes(x=steps_date$steps)) + geom_histogram(binwidth=(max(steps_date$steps)/nrow(steps_date)),fill="white",color="black") + ggtitle("histogram of total number of steps taken per day") + xlab("steps per day") + ylab("frequency")
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png) 
 
 * Calculate and report the mean and median of the total number of steps taken per day
 
@@ -56,8 +51,8 @@ median(steps_date$steps)
 ## [1] 10765
 ```
 
-The mean of the total number of steps is $1.0766189 &times; 10<sup>4</sup>$  
-The median of the total number of steps is $1.0765 &times; 10<sup>4</sup>$  
+The mean of the total number of steps is $1.0766189\times 10^{4}$  
+The median of the total number of steps is $1.0765\times 10^{4}$  
 
 ## What is the average daily activity pattern?
 
@@ -70,7 +65,7 @@ steps_interval<-aggregate(steps~interval,data=activitydata,mean,na.rm=TRUE)
 ggplot(steps_interval,aes(x=interval, y=steps)) + geom_line()
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png) 
 
 * Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -133,7 +128,7 @@ NAFilled_steps_date<-aggregate(steps~date,data=activityNAFilled,sum) # create ag
 ggplot(NAFilled_steps_date,aes(x=NAFilled_steps_date$steps)) + geom_histogram(binwidth=(max(NAFilled_steps_date$steps)/nrow(NAFilled_steps_date)),fill="white",color="black") + ggtitle("histogram of total number of steps taken per day") + xlab("steps per day") + ylab("frequency")
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-9-1.png) 
 
 ```r
 mean(NAFilled_steps_date$steps)
@@ -151,8 +146,8 @@ median(NAFilled_steps_date$steps)
 ## [1] 10766.19
 ```
 
-Mean total number of steps taken per day: $1.0766189 &times; 10<sup>4</sup>$  
-Median total number of steps taken per day is $1.0766189 &times; 10<sup>4</sup>$
+Mean total number of steps taken per day: $1.0766189\times 10^{4}$  
+Median total number of steps taken per day is $1.0766189\times 10^{4}$
 
 
 * Do these values differ from the estimates from the first part of the assignment?
@@ -183,4 +178,4 @@ steps_interval_bytypeofday=aggregate(steps~interval+typeofday,activityNAFilled,m
 ggplot(steps_interval_bytypeofday,aes(x=interval, y=steps, group=typeofday)) + geom_line() + facet_wrap(~typeofday, ncol=1)
 ```
 
-![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png) 
+![](PA1_template_files/figure-html/unnamed-chunk-11-1.png) 
