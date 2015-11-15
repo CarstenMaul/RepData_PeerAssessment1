@@ -31,7 +31,7 @@ activitydata$date <- ymd(activitydata$date)
 library(ggplot2)
 steps_date <- aggregate(steps~date,data=activitydata,sum,na.rm=TRUE)
 
-ggplot(steps_date,aes(x=steps_date$steps)) + geom_histogram(binwidth=(max(steps_date$steps)/nrow(steps_date))) + geom_bar(fill="white", colour="black") + ggtitle("histogram of total number of steps taken per day") + xlab("steps per day") + ylab("frequency")
+ggplot(steps_date,aes(x=steps_date$steps)) + geom_histogram(binwidth=(max(steps_date$steps)/nrow(steps_date)),fill="white",color="black") + ggtitle("histogram of total number of steps taken per day") + xlab("steps per day") + ylab("frequency")
 ```
 
 * Calculate and report the mean and median of the total number of steps taken per day
@@ -99,7 +99,7 @@ library(ggplot2)
 
 NAFilled_steps_date<-aggregate(steps~date,data=activityNAFilled,sum) # create aggregated data
 
-ggplot(NAFilled_steps_date,aes(x=NAFilled_steps_date$steps)) + geom_histogram(binwidth=(max(NAFilled_steps_date$steps)/nrow(NAFilled_steps_date))) + geom_bar(fill="white", colour="black") + ggtitle("histogram of total number of steps taken per day") + xlab("steps per day") + ylab("frequency")
+ggplot(NAFilled_steps_date,aes(x=NAFilled_steps_date$steps)) + geom_histogram(binwidth=(max(NAFilled_steps_date$steps)/nrow(NAFilled_steps_date)),fill="white",color="black") + ggtitle("histogram of total number of steps taken per day") + xlab("steps per day") + ylab("frequency")
 
 mean(NAFilled_steps_date$steps)
 median(NAFilled_steps_date$steps)
